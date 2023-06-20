@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class BallController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BallController : MonoBehaviour
     public TextManager text_manager;
     //private bool hasCollided = false;
     // Start is called before the first frame update
+    
     void Start()
     {
         text_manager = FindObjectOfType<TextManager>();
@@ -17,6 +19,7 @@ public class BallController : MonoBehaviour
         Vector2 direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad * degree), Mathf.Sin(Mathf.Deg2Rad * degree));
 
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed, ForceMode2D.Impulse);*/
+        
     }
 
     // Update is called once per frame
@@ -37,9 +40,14 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.CompareTag("bullet"))
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
+            
+
             text_manager.IncreaseScore();
             Destroy(gameObject);
+            //gameObject.SetActive(false);
             //hasCollided=true;
         }
     }
+
+    
 }

@@ -19,7 +19,13 @@ public class Guncontroller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject bullet = Instantiate<GameObject>(circlePrefap, gun.transform.position, gun.transform.rotation);
+            //GameObject bullet = Instantiate<GameObject>(circlePrefap, gun.transform.position, gun.transform.rotation);
+            GameObject bullet = ObjectPool.instance.GetPooledObject();
+            if (bullet != null)
+            {
+                bullet.transform.position = gun.transform.position;
+                bullet.SetActive(true);
+            }
             bullet.tag = "bullet";
             Rigidbody2D bullet_body = bullet.GetComponent<Rigidbody2D>();
             
