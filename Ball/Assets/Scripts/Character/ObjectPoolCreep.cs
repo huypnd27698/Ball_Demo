@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPoolCreep : MonoBehaviour
 {
-    public static ObjectPool instance;
+    public static ObjectPoolCreep instance;
     private List<GameObject> pooledObjects = new List<GameObject>();
     private int amountToPool = 10;
     [SerializeField] private GameObject bulletPrefab;
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -20,7 +19,7 @@ public class ObjectPool : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < amountToPool; i++)
+        for (int i = 0; i < amountToPool; i++)
         {
             GameObject obj = Instantiate(bulletPrefab);
             obj.SetActive(false);
@@ -30,7 +29,7 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject GetPooledObject()
     {
-        for(int i = 0; i < pooledObjects.Count; i++)
+        for (int i = 0; i < pooledObjects.Count; i++)
         {
             if (!pooledObjects[i].activeInHierarchy)
             {

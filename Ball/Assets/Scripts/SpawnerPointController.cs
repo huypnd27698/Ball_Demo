@@ -19,7 +19,13 @@ public class SpawnerPointController : MonoBehaviour
     {
         counter += Time.deltaTime;
         if (counter >= 0.5 ) {
-            GameObject ball = Instantiate(prefabBall,gameObject.transform.position,Quaternion.identity);
+            //GameObject ball = Instantiate(prefabBall,gameObject.transform.position,Quaternion.identity);
+            GameObject ball = ObjectPoolCreep.instance.GetPooledObject();
+            if (ball != null)
+            {
+                ball.transform.position = gameObject.transform.position;
+                ball.SetActive(true);
+            }
             balls.Add(ball);
             counter = 0;
             //creepcount++;

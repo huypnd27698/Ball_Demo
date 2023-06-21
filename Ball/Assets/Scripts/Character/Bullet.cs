@@ -16,13 +16,13 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Destroy(gameObject);
+        //stroy(gameObject);
         gameObject.SetActive(false);
 
     }
     private void OnBecameInvisible()
     {
-        //Destroy(gameObject);
+        //gameObject);
         gameObject.SetActive(false);
     }
 }

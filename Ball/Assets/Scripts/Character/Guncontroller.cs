@@ -35,8 +35,6 @@ public class Guncontroller : MonoBehaviour
             AudioManager audio_manager = audio.GetComponent<AudioManager>();
             audio_manager.Play();
         }
-
-
     }
     public static Vector2 getVector2DByDegree(float degree)
     {

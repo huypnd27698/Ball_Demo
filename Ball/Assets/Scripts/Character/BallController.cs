@@ -43,8 +43,8 @@ public class BallController : MonoBehaviour
             
 
             text_manager.IncreaseScore();
-            Destroy(gameObject);
-            //gameObject.SetActive(false);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
             //hasCollided=true;
         }
     }
